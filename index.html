@@ -1,0 +1,82 @@
+<!-- HTML -->
+<h1 id="titulo">Texto Antigo</h1>
+<button id="btn-mudar">Mudar Texto</button>
+<!-- JQUERY -->
+<script>
+ $(document).ready(function() {
+ $('#btn-mudar').click(function() {
+ $('#titulo').text('Texto alterado com jQuery com sucesso!');
+ });
+ });
+</script>
+
+
+<!-- HTML -->
+<p id="caixa">Esta caixa vai sumir e aparecer novamente com animação.</p>
+<button id="btn-toggle">Alternar Visibilidade</button>
+
+<!-- JQUERY -->
+<script>
+ $(document).ready(function() {
+ $('#btn-toggle').click(function() {
+ $('#caixa').toggle(500); // Transição em 500 milissegundos
+ });
+ });
+</script>
+
+<!-- CSS e HTML -->
+<style>
+ .card { padding: 10px; border: 1px solid #ccc; background: #f9f9f9; }
+ .ativo { background: #d1fae5; border-color: #10b981; font-weight: bold; }
+</style>
+<div id="card" class="card">Cartão de Exemplo</div>
+<button id="btn-estilo">Ativar / Desativar</button>
+
+<!-- JQUERY -->
+<script>
+ $(document).ready(function() {
+ $('#btn-estilo').click(function() {
+ $('#card').toggleClass('ativo');
+ });
+ });
+</script>
+
+<!-- HTML -->
+<form id="meu-form">
+ <input type="text" id="nome" placeholder="Digite seu nome">
+ <button type="submit">Enviar</button>
+</form>
+<p id="mensagem"></p>
+
+<!-- JQUERY -->
+<script>
+ $(document).ready(function() {
+ $('#meu-form').submit(function(event) {
+ event.preventDefault();
+const valor = $('#nome').val();
+if (valor === '') {
+ $('#mensagem').text('Por favor, preencha seu nome!').css('color', 'red');
+ } else {
+ $('#mensagem').text(`Bem-vindo, ${valor}!`).css('color', 'green');
+ }
+ });
+ });
+</script>
+
+
+<!-- HTML -->
+<input type="text" id="nova-tarefa" placeholder="Nova tarefa...">
+<button id="btn-add">Adicionar Tarefa</button>
+<ul id="lista-tarefas"></ul>
+<!-- JQUERY -->
+<script>
+ $(document).ready(function() {
+ $('#btn-add').click(function() {
+const item = $('#nova-tarefa').val();
+if (item !== '') {
+ $('#lista-tarefas').append(`<li>${item}</li>`);
+ $('#nova-tarefa').val(''); // Limpa o campo
+ }
+ });
+ });
+</script>
